@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -42,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Relasi User dengan Transaksi.
+     *
+     * Satu user dapat memiliki banyak transaksi.
+     */
+    public function transaksis()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
 }
